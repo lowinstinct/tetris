@@ -1,8 +1,14 @@
 # Oluwatimileyin Soyege
 # Mrs Sukovieff
 # Computer Science 30
-# 2 December 2021
-
+# 2 December 2021- Created Project
+# 16 December 2021 - Officially Announced the Title of Project
+# 6 January 2022 - Imported Pygame
+# 7 January 2022 - Created a class of blocks and defined our function
+# 7 January 2022 - Drew size of blocks
+# 11 January 2022 - organized the instructions of moving up and down
+# 12 January 2022 - Created an AI file
+# 14 January 2022 - Created the blocks to move
 
 
 
@@ -24,7 +30,7 @@ rotatecooldown = 0
 brickcenter = [0,0]
 
 
-#We then make a class of blocks
+# We then make a class of blocks
 class Block:
   
   def __init__(self, x, y, color):
