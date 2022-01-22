@@ -1,6 +1,7 @@
 # Oluwatimileyin Soyege
 # Mrs Sukovieff
 # Computer Science 30
+
 # 2 December 2021- Created Project
 # 16 December 2021 - Officially Announced the Title of Project
 # 6 January 2022 - Imported Pygame
@@ -8,7 +9,29 @@
 # 7 January 2022 - Drew size of blocks
 # 11 January 2022 - organized the instructions of moving up and down
 # 12 January 2022 - Created an AI file
-# 14 January 2022 - Created the blocks to move
+# 14 January 2022 - Created the blocks to move and uploaded game file to GitHub
+# 15 January 2022 - Made the blocks rotate and customized colors, also coordinated the controls on how to play the game
+# 16 January 2022 - Initiated the movements of falling and the variables for the blocks has been set
+# 17 January 2022 - Customized Screen
+# 18 January 2022 - Created Steps on how to officially do Tetris
+# 22 January 2022 - Edited the length of blocks and variables
+# 22 January 2022 - Created Presentation and Survey
+# 23 January 2022 - Project Finished
+
+# Presentation of Game:
+
+# I created Tetris. This game is targeted towards the people who are nostalgic, old school video game players and are looking to relieve their childhood. Which is why I came up with a modern, customized Tetris game for entertainment so that they could compare my own game to the original for fun!
+
+
+# I think I would rather try something new and more challenging mainly because I want to test my abilty and prove if I'm worthy of being a good coding student, but don't get me wrong I loved creating this game. 
+
+# I learned how to finally implement classes into my code as I struggled terribly before, it was a struggle at first but got easy over time
+
+# I enjoyed everything about this game, from the coding to the formatting to playing the game it was overall a very fun experience
+
+# My advice to a future student is to make sure you watch videos on how to master your coding, it will make you a better coder and overall will have more confidence in your projects
+
+# Thank you for tuning in, now let me show you the instructions on how to create my very own, Tetris:
 
 
 
