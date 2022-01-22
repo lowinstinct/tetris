@@ -10,6 +10,7 @@
 # first we import the pygame window to get the game to work
 import pygame, random
 
+# This will set up the screen and window for our Tetris game
 screen = pygame.display.set_mode((250,500))
 pygame.display.set_caption("Tetris")
 done = False
@@ -32,10 +33,11 @@ class Block:
     self.y = y + 12
     self.color = color
     fallingblocks.append(self)
-
+  
+  # This must define the fall function
   def fall(self):
     self.y += 25
-  
+  # This must define the move function
   def move(self):
     if pressed[pygame.K_a] or pressed[pygame.K_LEFT]: 
       self.x -= 25
@@ -44,6 +46,7 @@ class Block:
       self.x += 25
       brickcenter[0] += 6.25
   
+  # Then, we must draw blocks to organize it more properly and for it to look good
   def drawblock(self): #just to make it look nice
     pygame.draw.rect(screen, self.color[0], pygame.Rect(self.x-12,self.y-12,25,25))
     pygame.draw.polygon(screen, self.color[1], ((self.x-12,self.y-12),(self.x-9,self.y-9),(self.x+9,self.y-9),(self.x+12,self.y-12)))
@@ -51,12 +54,13 @@ class Block:
     pygame.draw.polygon(screen, self.color[3], ((self.x-12,self.y+12),(self.x-9,self.y+9),(self.x+9,self.y+9),(self.x+12,self.y+12)))
     pygame.draw.polygon(screen, self.color[4], ((self.x+12,self.y+12),(self.x+9,self.y+9),(self.x+9,self.y-9),(self.x+12,self.y-12)))
 
+# We then create a spawn, which generates the blocks and colors in any size or shape you want
 def spawn():
   blocknum = random.randint(0,6)
   global brickcenter
   
   if blocknum == 0:
-    #I block
+    # I block
     colors = [(129,184,231),
     (179,223,250),
     (146,202,238),
@@ -82,7 +86,7 @@ def spawn():
     Block(100,50,colors)
     brickcenter = [137,37]
   elif blocknum == 2:
-    #L block
+    # L block
     colors = [(219,127,44),
     (243,191,122),
     (229,158,69),
@@ -95,7 +99,7 @@ def spawn():
     Block(125,50,colors) 
     brickcenter = [112,37] 
   elif blocknum == 3:
-    #O block
+    # O block
     colors = [(248,222,49),
     (246,243,139),
     (245,235,86),
@@ -184,24 +188,34 @@ while not done: #main loop
       fallingblock.fall()
       brickcenter[1] += 6.25
     fallcooldown = 0
-
+  
+  # With this control, you can rotate the piece and you can flip it
   if pressed[pygame.K_UP] and rotatecooldown >= 10: 
     rotate()
     rotatecooldown = 0
   
-  if pressed[pygame.K_SPACE]: quickdrop = True #if you want the piece to go the ground instantly
-  if quickdrop: fallcooldown = 50 #falling movements
-  elif pressed[pygame.K_DOWN]: fallcooldown += 8 #goes faster
+  # if you want the piece to go the ground instantly
+  if pressed[pygame.K_SPACE]: quickdrop = True 
+ 
+  # This initiates the movements of when you fall
+  if quickdrop: fallcooldown = 50 
+  
+  # The more you press down, the faster it goes
+  elif pressed[pygame.K_DOWN]: fallcooldown += 8 
+  
   else: fallcooldown += 1 #default speed
 
+#if fallingblock collides with setblock
   for fallingblock in fallingblocks:
     for setblock in setblocks:
-      if pygame.Rect(fallingblock.x - 11, fallingblock.y - 12, 23, 26).colliderect(pygame.Rect(setblock.x - 11, setblock.y - 12, 23, 26)): #if fallingblock collides with setblock
+      if pygame.Rect(fallingblock.x - 11, fallingblock.y - 12, 23, 26).colliderect(pygame.Rect(setblock.x - 11, setblock.y - 12, 23, 26)): 
         locked = True
-    if fallingblock.y >= 487 and not locked: #if block hits the bottom
+         #if block hits the bottom
+    if fallingblock.y >= 487 and not locked: 
       locked = True
-  
-  if locked: #if block is in final state
+
+# if block is in final state
+  if locked: 
     for i in range(0,4): setblocks.append(Block(fallingblocks[i].x-12,fallingblocks[i].y-12,fallingblocks[i].color))
     fallingblocks = []
     locked = False
@@ -215,6 +229,9 @@ while not done: #main loop
   
   if pressed[pygame.K_ESCAPE]: done = True
 
+# This is the end of the game
   for event in pygame.event.get():
 	  if event.type == pygame.QUIT:
 		  done = True
+
+# Thanks for tuning in, hopefully you enjoyed the game!
